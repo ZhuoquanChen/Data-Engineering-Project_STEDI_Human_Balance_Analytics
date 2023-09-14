@@ -25,7 +25,7 @@ Several customers have already received their Step Trainers, installed the mobil
 
 #### Configuring the S3 VPC Gateway Endpoint
 
-![Configuration](.img/c3-l3-03.png)
+![Configuration](./img/c3-l3-03.png)
 
 - S3 VPC Gateway Endpoint
 	- Step 1: Creating an S3 Bucket
@@ -49,7 +49,7 @@ com.amazonaws.us-east-1.s3 --route-table-ids _______
 
 #### Creating the Glue Service Role
 
-![Configuration-2](./limg/c3-l3-02.png)
+![Configuration-2](./img/c3-l3-02.png)
 
 - Creating the Glue Service IAM Role
 ```
