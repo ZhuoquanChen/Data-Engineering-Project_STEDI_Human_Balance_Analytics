@@ -4,6 +4,7 @@ from awsglue.utils import getResolvedOptions
 from pyspark.context import SparkContext
 from awsglue.context import GlueContext
 from awsglue.job import Job
+import re
 
 args = getResolvedOptions(sys.argv, ["JOB_NAME"])
 sc = SparkContext()
@@ -32,9 +33,16 @@ ChangeSchema_node2 = ApplyMapping.apply(
     transformation_ctx="ChangeSchema_node2",
 )
 
+# Script generated for node Filter
+Filter_node1694722374865 = Filter.apply(
+    frame=ChangeSchema_node2,
+    f=lambda row: (not (row["sharewithresearchasofdate"] == 0)),
+    transformation_ctx="Filter_node1694722374865",
+)
+
 # Script generated for node customer_trusted
 customer_trusted_node3 = glueContext.write_dynamic_frame.from_options(
-    frame=ChangeSchema_node2,
+    frame=Filter_node1694722374865,
     connection_type="s3",
     format="json",
     connection_options={
